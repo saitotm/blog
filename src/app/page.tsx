@@ -22,7 +22,7 @@ export default function Home() {
     <main>
       <div className="p-10">
         <h1 className="flex justify-center text-4xl">記事一覧</h1>
-        {posts.map((post) => <PostCard {...post}/>)}
+        {posts.map((post) => <PostCard key={post.id} {...post}/>)}
       </div>
     </main>
   );
