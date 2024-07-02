@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <header className="flex items-center bg-blue-200 h-[60px]">
           <Link href="/" className="text-3xl font-bold text-gray-800 pl-[50px]">
-            {metadata.title}
+            {metadata.title as string}
            </Link>
         </header>
         {children}

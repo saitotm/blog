@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import Link from "next/link";
 
-export function PostCard({ frontMatter, id }) {
+export function PostCard({ frontMatter, id } : { frontMatter: { title: string, date: Date, description: string }, id: string }) {
   return (
     <Link href={`/posts/${id}`} className="p-4">
       <h2 className="text-2xl font-bold">{frontMatter.title}</h2>

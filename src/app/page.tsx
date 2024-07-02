@@ -3,6 +3,15 @@ import matter from "gray-matter";
 
 import { PostCard } from "@/components/PostCard";
 
+type Post = {
+  frontMatter: {
+    title: string,
+    date: Date,
+    description: string,
+  },
+  id: string,
+};
+
 export default function Home() {
   const files = fs.readdirSync("posts");
   const posts = files.map((filename) => {
@@ -14,9 +23,9 @@ export default function Home() {
       frontMatter: data,
       id,
     }
-  });
+  }) as Post[];
   posts.reverse();
-  posts.sort((a, b) => b.frontMatter.date - a.frontMatter.date);
+  posts.sort((a, b) => b.frontMatter.date.getTime() - a.frontMatter.date.getTime());
 
   return (
     <main>

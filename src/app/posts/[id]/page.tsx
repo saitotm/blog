@@ -1,22 +1,25 @@
+import { NextPage } from 'next';
 import ReactMarkdown from 'react-markdown';
 import { format } from 'date-fns';
 import fs from 'fs';
 import matter from 'gray-matter';
 
-export async function getStaticPaths() {
+type PostProps = {
+  params: {
+    id: string;
+  }
+};
+
+export const generateStaticParams = async () => {
   const files = fs.readdirSync("posts");
   const paths = files.map((filename) => ({
-    params: {
-      id: filename.replace(/\.md$/, ""),
-    },
+    id: filename.replace(/\.md$/, ""),
   }));
-  return {
-    paths,
-    fallback: false,
-  };
-}
 
-export default function ArticlePage({ params }) {
+  return paths;
+};
+
+const PostPage : NextPage<PostProps> = ({ params }) => {
   const markdown = fs.readFileSync(`posts/${params.id}.md`).toString();
   const { data, content } = matter(markdown);
 
@@ -27,4 +30,6 @@ export default function ArticlePage({ params }) {
       <ReactMarkdown className="markdown">{content}</ReactMarkdown>
     </main>
   );
-}
+};
+
+export default  PostPage;
