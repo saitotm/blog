@@ -9,7 +9,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "一切皆苦",
+  title: "びぼうログ",
   description: "技術系のメモを書いておくブログ",
 };
 
