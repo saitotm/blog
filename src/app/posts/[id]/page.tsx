@@ -24,10 +24,14 @@ const PostPage : NextPage<PostProps> = ({ params }) => {
   const { data, content } = matter(markdown);
 
   return (
-    <main className="mx-10">
-      <h1 className="flex justify-center text-5xl p-5">{data.title}</h1>
-      <p className="flex justify-end text-gray-600">{format(data.date, "yyyy/MM/dd")}</p>
-      <ReactMarkdown className="markdown">{content}</ReactMarkdown>
+    <main className="flex flex-col justify-center items-center ">
+      <div className="mx-10 max-w-[1000px]">
+        <h1 className="flex justify-center text-5xl p-5">{data.title}</h1>
+        <p className="flex justify-end text-gray-600">{format(data.date, "yyyy/MM/dd")}</p>
+        <ReactMarkdown className="markdown">{content}</ReactMarkdown>
+        <div className="h-[100px]">
+        </div>
+      </div>
     </main>
   );
 };
