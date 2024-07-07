@@ -102,3 +102,7 @@
 .markdown img {
   @apply p-3;
 }
+
+.markdown code {
+  @apply p-1;
+}
