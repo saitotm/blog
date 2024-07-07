@@ -25,7 +25,7 @@ const PostPage : NextPage<PostProps> = ({ params }) => {
 
   return (
     <main className="flex flex-col justify-center items-center ">
-      <div className="mx-10 max-w-[1000px]">
+      <div className="mx-10 max-w-[800px]">
         <h1 className="flex justify-center text-5xl p-5">{data.title}</h1>
         <p className="flex justify-end text-gray-600">{format(data.date, "yyyy/MM/dd")}</p>
         <ReactMarkdown className="markdown">{content}</ReactMarkdown>

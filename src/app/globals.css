@@ -98,3 +98,7 @@
 .markdown .highlight pre {
   @apply bg-gray-100 !important;
 }
+
+.markdown img {
+  @apply p-3;
+}
