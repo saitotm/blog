@@ -22,6 +22,16 @@ date: 2024-07-04
 配列の範囲外参照が未定義動作であり、これに伴いコンパイラの最適化の結果が変わることがあります。
 例えば、次のようなコードがあった場合に、最適化により関数は画像の通り任意の値にtrueを返すようになります。
 
+```cpp
+bool function(int x) {
+    int array[4] = {2, 3, 5, 7};
+    for (int i = 0; i <= 4; i++)
+        if (x == aray[i]) 
+            return true;
+    return false;
+}
+```
+
 ![Image](https://saitotm.github.io/blog/002/undefined.png)
 
 array[4]にアクセスするのは未定義動作であるため、コンパイラはこれが起きないと仮定できます。
